@@ -24,6 +24,7 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch('http://localhost:3000/tasks'),
         Component: Home
+       
 
       },
       {
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
         )
       }
       ,
+
       {
         path: 'login',
         Component: Login
@@ -69,6 +71,9 @@ const router = createBrowserRouter([
 
     ]
   },
+
+
+
 ]);
 
 

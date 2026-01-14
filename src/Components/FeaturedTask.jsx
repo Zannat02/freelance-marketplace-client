@@ -5,19 +5,29 @@ import { animate, stagger } from "motion";
 
 const FeaturedTask = ({ tasks }) => {
 
+    // useEffect(() => {
+    //     animate(
+    //         "li",
+    //         { y: 0, opacity: 1 },
+    //         { delay: stagger(0.1), duration: 0.4 }
+    //     );
+    // }, []);
+
     useEffect(() => {
+    if (tasks.length > 0) {
         animate(
             "li",
             { y: 0, opacity: 1 },
             { delay: stagger(0.1), duration: 0.4 }
         );
-    }, []);
+    }
+}, [tasks]); 
 
     return (
         <div className="p-10">
             <h2 className="text-3xl text-center  font-bold mb-4">Featured Tasks</h2>
 
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                 {
                     tasks.map(task => (
                         <li
@@ -30,7 +40,9 @@ const FeaturedTask = ({ tasks }) => {
                             </h3>
                             <p>Category: {task.category}</p>
                             <p>Budget: ৳{task.budget}</p>
-                            <p>Deadline: {task.deadline}</p>
+                            {/* <p>Deadline: {task.deadline}</p> */}
+                            <p>Deadline: {new Date(task.deadline).toLocaleDateString()}</p>
+
                         </li>
                     ))
                 }
@@ -40,3 +52,8 @@ const FeaturedTask = ({ tasks }) => {
 };
 
 export default FeaturedTask;
+
+
+
+
+

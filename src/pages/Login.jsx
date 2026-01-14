@@ -104,8 +104,8 @@ const Login = () => {
   };
 
   return (
-    <div className="card bg-base-100 max-w-sm mt-10 mx-auto shadow-2xl">
-      <h1 className="text-4xl font-bold p-3">Sign In</h1>
+    <div className="card bg-base-200 max-w-sm mt-30 mx-auto border  border-gray-200 rounded-xl">
+      <h1 className="text-4xl font-bold p-4">Log In</h1>
       <div className="card-body">
         <form onSubmit={handleSignIn}>
           <input name="email" type="email" className="input" placeholder="Email" />
@@ -118,7 +118,7 @@ const Login = () => {
         </button>
 
         <p className="mt-2 text-sm">
-          New here? <Link to="/signup" className="link">Register</Link>
+          New here? <Link to="/signup" className="link">SignUp</Link>
         </p>
       </div>
     </div>

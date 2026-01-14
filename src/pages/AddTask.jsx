@@ -30,7 +30,8 @@ const AddTask = () => {
 
         
         const newTask = Object.fromEntries(formData.entries());
-        newTask.deadline = new Date(newTask.deadline);
+       newTask.deadline = new Date(newTask.deadline);
+
         console.log(newTask);
         
         // send data to the server
