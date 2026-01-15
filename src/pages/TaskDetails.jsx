@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { section } from "motion/react-client";
 
 const TaskDetails = () => {
   const { id } = useParams();
@@ -16,7 +17,8 @@ const TaskDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+     <section className='bg-[#90AB8B]'>
+       <div className="max-w-4xl mx-auto p-6 min-h-screen  flex flex-col items-center justify-center ">
       <h2 className="text-2xl font-bold mb-4">{task.title}</h2>
 
       <p><b>Category:</b> {task.category}</p>
@@ -25,6 +27,8 @@ const TaskDetails = () => {
       <p><b>Budget:</b> {task.budget}</p>
       <p><b>Posted By:</b> {task.email}</p>
     </div>
+     </section>
+
   );
 };
 

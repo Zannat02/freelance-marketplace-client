@@ -69,7 +69,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
- 
+
   const from = location.state?.from?.pathname || "/";
 
   const handleSignIn = e => {
@@ -82,7 +82,7 @@ const Login = () => {
       .then(() => {
         Swal.fire("Success", "Login successful", "success");
 
-      
+
         navigate(from, { replace: true });
       })
       .catch(err => {
@@ -95,7 +95,7 @@ const Login = () => {
       .then(() => {
         Swal.fire("Success", "Google login successful", "success");
 
-       
+
         navigate(from, { replace: true });
       })
       .catch(err => {
@@ -104,24 +104,27 @@ const Login = () => {
   };
 
   return (
-    <div className="card bg-base-200 max-w-sm mt-30 mx-auto border  border-gray-200 rounded-xl">
-      <h1 className="text-4xl font-bold p-4">Log In</h1>
-      <div className="card-body">
-        <form onSubmit={handleSignIn}>
-          <input name="email" type="email" className="input" placeholder="Email" />
-          <input name="password" type="password" className="input mt-2" placeholder="Password" />
-          <button className="btn btn-neutral mt-4 w-full">Login</button>
-        </form>
+    <section className="bg-[#fcfff6] min-h-screen pt-40">
 
-        <button onClick={handleGoogleLogin} className="btn btn-outline mt-2">
-          Google Login
-        </button>
+      <div className="card bg-base-200 max-w-sm  mx-auto border  border-gray-200 rounded-xl">
+        <h1 className="text-4xl font-bold p-4">Log In</h1>
+        <div className="card-body">
+          <form onSubmit={handleSignIn}>
+            <input name="email" type="email" className="input" placeholder="Email" />
+            <input name="password" type="password" className="input mt-2" placeholder="Password" />
+            <button className="btn btn-neutral mt-4 w-full">Login</button>
+          </form>
 
-        <p className="mt-2 text-sm">
-          New here? <Link to="/signup" className="link">SignUp</Link>
-        </p>
+          <button onClick={handleGoogleLogin} className="btn btn-outline mt-2">
+            Google Login
+          </button>
+
+          <p className="mt-2 text-sm">
+            New here? <Link to="/signup" className="link">SignUp</Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

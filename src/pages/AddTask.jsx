@@ -81,12 +81,12 @@ const AddTask = () => {
 
                     <fieldset className="fieldset border-base-300 rounded-box p-4">
                         <label className="label">Name</label>
-                        <input type="text"   value={user?.displayName || ""}           className="input w-full" name='name'    readOnly   placeholder="User Name" />
+                        <input type="text"   value={user?.displayName || ""}  className="input w-full" name='name'    readOnly   placeholder="User Name" />
                     </fieldset>
 
                     <fieldset className="fieldset border-base-300 rounded-box p-4">
                         <label className="label">Email</label>
-                        <input type="email" value={user?.email || ""}   className="input w-full" name='email'  readOnly placeholder="User Email" />
+                        <input type="email" value={user?.email || ""}   className="input w-full" name='email' readOnly  placeholder="User Email" />
                     </fieldset>
 
                     <fieldset className="fieldset border-base-300 rounded-box p-4">
