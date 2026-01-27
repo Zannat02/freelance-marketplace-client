@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router";
 import { section } from "motion/react-client";
+import { Helmet } from "react-helmet";
 
 const Signup = () => {
   const { createUser, updateUserProfile, googleLogin } = useContext(AuthContext);
@@ -35,6 +36,11 @@ const Signup = () => {
   return (
     <section className="bg-[#fcfff6] min-h-screen pt-10">
       <div className="card bg-base-200 max-w-sm mt-20 mx-auto border  border-gray-200 rounded-xl ">
+        <Helmet>
+          <title>Sign Up| My Freelance Marketplace</title>
+        
+        </Helmet>
+
         <h1 className="text-4xl font-bold p-4">Sign Up</h1>
         <div className="card-body">
           <form onSubmit={handleSignUp}>

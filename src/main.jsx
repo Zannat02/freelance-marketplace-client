@@ -8,12 +8,15 @@ import MainLayout from './Layouts/MainLayout.jsx';
 import Home from './pages/Home.jsx';
 import AddTask from './pages/AddTask.jsx';
 import BrowseTask from './pages/BrowseTask.jsx';
-import PostedTask from './pages/PostedTask.jsx';
+
 import TaskDetails from './pages/TaskDetails.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import AuthProvider from './context/AuthProvider.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import MyTask from './pages/MyTask.jsx';
+import UpdateTask from './pages/UpdateTask.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
         index: true,
         loader: () => fetch('http://localhost:3000/tasks'),
         Component: Home
-       
+
 
       },
       {
@@ -53,11 +56,20 @@ const router = createBrowserRouter([
         // Component: PostedTask
         element: (
           <PrivateRoute>
-            <PostedTask />
+            <MyTask />
           </PrivateRoute>
         )
-      }
-      ,
+      },
+
+      {
+        path: 'updateTask/:id',
+        element: (
+          <PrivateRoute>
+            <UpdateTask />
+          </PrivateRoute>
+        )
+      },
+      
 
       {
         path: 'login',
@@ -72,7 +84,10 @@ const router = createBrowserRouter([
     ]
   },
 
-
+  {
+    path: "*",
+    Component: NotFound
+  }
 
 ]);
 

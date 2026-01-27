@@ -1,5 +1,6 @@
 import { section } from "motion/react-client";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router";
 
 const BrowseTasks = () => {
@@ -15,6 +16,11 @@ const BrowseTasks = () => {
 
         <section className='bg-[#5A7863]'>
             <div className="w-11/12 mx-auto p-6 ">
+                <Helmet>
+                    <title>Browse Tasks | My Freelance Marketplace</title>
+
+                </Helmet>
+
                 <h2 className="text-2xl font-bold mb-6 text-center">Browse Tasks</h2>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 ">

@@ -1,9 +1,10 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { section } from "motion/react-client";
+import { Helmet } from "react-helmet";
 
 const TaskDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [task, setTask] = useState(null);
 
   useEffect(() => {
@@ -17,19 +18,49 @@ const TaskDetails = () => {
   }
 
   return (
-     <section className='bg-[#90AB8B]'>
-       <div className="max-w-4xl mx-auto p-6 min-h-screen  flex flex-col items-center justify-center ">
-      <h2 className="text-2xl font-bold mb-4">{task.title}</h2>
+    <section className="bg-[#90AB8B] min-h-screen flex items-center justify-center px-4">
 
-      <p><b>Category:</b> {task.category}</p>
-      <p><b>Description:</b> {task.description}</p>
-      <p><b>Deadline:</b> {task.deadline}</p>
-      <p><b>Budget:</b> {task.budget}</p>
-      <p><b>Posted By:</b> {task.email}</p>
-    </div>
-     </section>
+      <div
+        className="w-full max-w-4xl bg-[#FCFFF6] rounded-lg shadow-md p-6 sm:p-8
+        "
+      >
 
+        <Helmet>
+          <title>{task?.title || "Task Details"} | My Freelance Marketplace</title>
+        </Helmet>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 break-words">
+          {task.title}
+        </h2>
+
+
+        <div className="space-y-3 text-left text-sm sm:text-base break-words">
+          <p><b>Category:</b> {task.category}</p>
+          <p><b>Description:</b> {task.description}</p>
+          <p><b>Deadline:</b> {task.deadline}</p>
+          <p><b>Budget:</b> {task.budget}</p>
+          <p><b>Posted By:</b> {task.email}</p>
+        </div>
+
+        {/* Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => navigate("/browseTask")}
+            className="
+              px-6 py-2 rounded-md
+              bg-[#EBF4DD] text-black
+              hover:bg-black hover:text-white
+              transition
+              text-sm sm:text-base
+            "
+          >
+            Back to Browse Tasks
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 
 export default TaskDetails;
+
