@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Components/header';
+import Header from '../Components/Header';
 import { useLoaderData } from 'react-router';
 import FeaturedTask from '../Components/FeaturedTask';
 import { Helmet } from 'react-helmet';
