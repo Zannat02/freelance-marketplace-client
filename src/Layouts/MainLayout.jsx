@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import Bannar from '../Components/Bannar';
 
 const MainLayout = () => {
 
@@ -14,6 +15,7 @@ const MainLayout = () => {
             <section className='bg-[#EBF4DD]'>
                 <Header />
             </section>
+           
 
             <section className=''>
                 <Outlet />
