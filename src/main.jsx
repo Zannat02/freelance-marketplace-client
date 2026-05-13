@@ -18,14 +18,17 @@ import MyTask from './pages/MyTask.jsx';
 import UpdateTask from './pages/UpdateTask.jsx';
 import NotFound from './pages/NotFound.jsx';
 
+
+const BASE_URL = import.meta.env.VITE_API_URL;
 const router = createBrowserRouter([
+  
   {
     path: "/",
     Component: MainLayout,
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/tasks'),
+        loader: () => fetch(`${BASE_URL}/tasks`),
         Component: Home
 
 

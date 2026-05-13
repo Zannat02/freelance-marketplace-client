@@ -7,9 +7,10 @@ const TaskDetails = () => {
   const navigate = useNavigate();
   const [task, setTask] = useState(null);
   const [bidsCount, setBidsCount] = useState(0);
+  const BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/alltasks/${id}`)
+    fetch(`${BASE_URL}/alltasks/${id}`)
       .then(res => res.json())
       .then(data => {
         setTask(data);
@@ -18,7 +19,7 @@ const TaskDetails = () => {
   }, [id]);
 
   const handleBid = () => {
-    fetch(`http://localhost:3000/tasks/bid/${id}`, {
+    fetch(`${BASE_URL}/tasks/bid/${id}`, {
       method: 'PATCH',
     })
       .then(res => res.json())

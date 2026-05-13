@@ -6,8 +6,9 @@ import { Link } from "react-router";
 const BrowseTasks = () => {
     const [tasks, setTasks] = useState([]);
 
+   const BASE_URL = import.meta.env.VITE_API_URL;
     useEffect(() => {
-        fetch("http://localhost:3000/alltasks")
+        fetch(`${BASE_URL}/alltasks`)
             .then(res => res.json())
             .then(data => setTasks(data));
     }, []);

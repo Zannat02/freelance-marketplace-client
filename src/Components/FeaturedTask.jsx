@@ -5,13 +5,7 @@ import { animate, stagger } from "motion";
 
 const FeaturedTask = ({ tasks }) => {
 
-    // useEffect(() => {
-    //     animate(
-    //         "li",
-    //         { y: 0, opacity: 1 },
-    //         { delay: stagger(0.1), duration: 0.4 }
-    //     );
-    // }, []);
+   
 
     useEffect(() => {
     if (tasks.length > 0) {
