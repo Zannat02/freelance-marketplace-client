@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch(`http://localhost:3000/tasks`),
+       loader: () => fetch(`${import.meta.env.VITE_API_URL}/tasks`),
         Component: Home
 
 

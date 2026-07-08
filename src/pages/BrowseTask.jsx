@@ -12,7 +12,7 @@ const BrowseTasks = () => {
 
    const BASE_URL = import.meta.env.VITE_API_URL;
     useEffect(() => {
-        fetch(`http://localhost:3000/alltasks`)
+      fetch(`${import.meta.env.VITE_API_URL}/alltasks`)
             .then(res => res.json())
             .then(data => {
                 setTasks(data);
@@ -39,7 +39,9 @@ const BrowseTasks = () => {
                         <div key={task._id} className="border rounded-lg p-4 shadow bg-[#f7fbf1]">
                             <h3 className="text-xl font-semibold">{task.title}</h3>
                             <p className="text-gray-600">{task.category}</p>
-                            <p className="text-sm">Deadline: {task.deadline}</p>
+                            {/* <p className="text-sm">Deadline: {task.deadline}</p> */}
+
+                            <p className="text-sm">Deadline: {new Date(task.deadline).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
 
                             <Link to={`/task/${task._id}`}>
                                 <button className="mt-3 btn btn-primary">

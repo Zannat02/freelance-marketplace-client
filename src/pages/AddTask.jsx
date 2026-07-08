@@ -30,7 +30,7 @@ const AddTask = () => {
         const newTask = Object.fromEntries(formData.entries());
         newTask.deadline = new Date(newTask.deadline);
 
-        fetch(`http://localhost:3000/tasks`, {
+       fetch(`${import.meta.env.VITE_API_URL}/tasks`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newTask)
@@ -115,7 +115,7 @@ const AddTask = () => {
                         <input type="text" className="input w-full" name='budget' placeholder="Budget" />
                     </fieldset>
 
-                    <fieldset className="fieldset border-base-300 rounded-box p-3 sm:p-4">
+                    {/* <fieldset className="fieldset border-base-300 rounded-box p-3 sm:p-4">
                         <label className="label">Deadline</label>
                         <div className="relative">
                             <input
@@ -131,6 +131,24 @@ const AddTask = () => {
                                 className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600"
                                 onClick={() => {
                                     dateRef.current.type = "date";
+                                    dateRef.current.showPicker();
+                                }}
+                            />
+                        </div>
+                    </fieldset> */}
+
+                    <fieldset className="fieldset border-base-300 rounded-box p-3 sm:p-4">
+                        <label className="label">Deadline</label>
+                        <div className="relative">
+                            <input
+                                ref={dateRef}
+                                type="date"
+                                name="deadline"
+                                className="input w-full pr-10"
+                            />
+                            <FaCalendarAlt
+                                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600"
+                                onClick={() => {
                                     dateRef.current.showPicker();
                                 }}
                             />

@@ -10,7 +10,7 @@ const TaskDetails = () => {
   
 
   useEffect(() => {
-    fetch(`http://localhost:3000/alltasks/${id}`)
+   fetch(`${import.meta.env.VITE_API_URL}/alltasks/${id}`)
       .then(res => res.json())
       .then(data => {
         setTask(data);
@@ -19,7 +19,7 @@ const TaskDetails = () => {
   }, [id]);
 
   const handleBid = () => {
-    fetch(`http://localhost:3000/tasks/bid/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/tasks/bid/${id}`, {
       method: 'PATCH',
     })
       .then(res => res.json())

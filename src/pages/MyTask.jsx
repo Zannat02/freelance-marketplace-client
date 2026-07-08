@@ -11,7 +11,7 @@ const MyTasks = () => {
  
 
   useEffect(() => {
-    fetch(`http://localhost:3000/mytasks?email=${user.email}`)
+   fetch(`${import.meta.env.VITE_API_URL}/mytasks?email=${user.email}`)
       .then(res => res.json())
       .then(data => setTasks(data));
   }, [user.email]);
@@ -25,7 +25,7 @@ const MyTasks = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/tasks/${id}`, {
+       fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
           method: "DELETE"
         })
           .then(res => res.json())

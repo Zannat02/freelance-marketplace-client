@@ -12,7 +12,7 @@ const UpdateTask = () => {
  
 
   useEffect(() => {
-    fetch(`http://localhost:3000/tasks/${id}`)
+   fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`)
       .then(res => res.json())
       .then(data => setTask(data));
   }, [id]);
@@ -20,7 +20,7 @@ const UpdateTask = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/tasks/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json"
