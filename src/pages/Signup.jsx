@@ -17,12 +17,12 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    // if (!/[A-Z]/.test(password))
-    //   return Swal.fire("Error", "Must have uppercase letter", "error");
-    // if (!/[a-z]/.test(password))
-    //   return Swal.fire("Error", "Must have lowercase letter", "error");
-    // if (password.length < 6)
-    //   return Swal.fire("Error", "Password must be 6 characters", "error");
+    if (!/[A-Z]/.test(password))
+      return Swal.fire("Error", "Must have uppercase letter", "error");
+    if (!/[a-z]/.test(password))
+      return Swal.fire("Error", "Must have lowercase letter", "error");
+    if (password.length < 6)
+      return Swal.fire("Error", "Password must be 6 characters", "error");
 
     createUser(email, password)
       .then(() => {
