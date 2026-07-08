@@ -3,7 +3,8 @@
 import React, { useEffect } from 'react';
 import { animate, stagger } from "motion";
 
-const FeaturedTask = ({ tasks }) => {
+const FeaturedTask = ({ tasks ,
+darkMode }) => {
 
    
 
@@ -19,16 +20,15 @@ const FeaturedTask = ({ tasks }) => {
 
     return (
         <div className="p-10">
-            <h2 className="text-3xl text-center  font-bold mb-4">Featured Tasks</h2>
+            <h2 className={`text-3xl text-center font-bold mb-4 ${darkMode?'text-white':''}`}>Featured Tasks</h2>
 
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                 {
                     tasks.map(task => (
                         <li
                             key={task._id}
-                            className="border rounded p-4 shadow
-                                       translate-y-10 opacity-0 bg-[#EBF4DD]"
-                        >
+                            className={`border rounded p-4 shadow translate-y-10 opacity-0 ${darkMode ? "bg-[#1E293B] text-white border-gray-600"  : "bg-[#EBF4DD]"}`}>
+        
                             <h3 className="text-xl font-semibold">
                                 {task.title}
                             </h3>

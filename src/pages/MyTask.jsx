@@ -8,10 +8,10 @@ const MyTasks = () => {
   const { user } = useContext(AuthContext);
   const [tasks, setTasks] = useState([]);
 
-  const BASE_URL = import.meta.env.VITE_API_URL;
+ 
 
   useEffect(() => {
-    fetch(`${BASE_URL}/mytasks?email=${user.email}`)
+    fetch(`http://localhost:3000/mytasks?email=${user.email}`)
       .then(res => res.json())
       .then(data => setTasks(data));
   }, [user.email]);
@@ -25,7 +25,7 @@ const MyTasks = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`${BASE_URL}/tasks/${id}`, {
+        fetch(`http://localhost:3000/tasks/${id}`, {
           method: "DELETE"
         })
           .then(res => res.json())

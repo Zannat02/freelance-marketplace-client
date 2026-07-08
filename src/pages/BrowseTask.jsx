@@ -2,16 +2,26 @@ import { section } from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router";
+import Spinner from "../Components/Spinner";
+
 
 const BrowseTasks = () => {
     const [tasks, setTasks] = useState([]);
 
+    const [loading, setLoading] = useState(true);
+
    const BASE_URL = import.meta.env.VITE_API_URL;
     useEffect(() => {
-        fetch(`${BASE_URL}/alltasks`)
+        fetch(`http://localhost:3000/alltasks`)
             .then(res => res.json())
-            .then(data => setTasks(data));
+            .then(data => {
+                setTasks(data);
+                setLoading(false);
+            });
     }, []);
+
+
+    if (loading) return <Spinner />;
 
     return (
 

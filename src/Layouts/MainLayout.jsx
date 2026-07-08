@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
@@ -9,16 +10,21 @@ const MainLayout = () => {
     const location = useLocation();
     const hideFooterRoutes = ['/login', '/signup'];
     const hideFooter = hideFooterRoutes.includes(location.pathname);
+    const [darkMode, setDarkMode] = useState(false)
 
     return (
         <div>
             <section className='bg-[#EBF4DD]'>
-                <Header />
+                <Header darkMode={darkMode}
+                    setDarkMode={setDarkMode} />
             </section>
-           
+
 
             <section className=''>
-                <Outlet />
+                <Outlet context={{
+                    darkMode,
+                    setDarkMode
+                }} />
             </section>
 
             {!hideFooter && (

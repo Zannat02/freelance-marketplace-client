@@ -10,7 +10,6 @@ const AddTask = () => {
     const categoryRef = useRef(null);
 
     const { user } = use(AuthContext);
-    const BASE_URL = import.meta.env.VITE_API_URL;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +30,7 @@ const AddTask = () => {
         const newTask = Object.fromEntries(formData.entries());
         newTask.deadline = new Date(newTask.deadline);
 
-        fetch(`${BASE_URL}/tasks`, {
+        fetch(`http://localhost:3000/tasks`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newTask)

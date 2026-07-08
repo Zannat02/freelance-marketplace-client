@@ -1,174 +1,227 @@
-# React + Vite
+# Freelance Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Freelance Task Marketplace web application where clients can post tasks and freelancers can browse opportunities, view task details, and place bids. The project focuses on authentication, CRUD operations, protected routes, responsive UI, and a clean user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Live Website
 
-## React Compiler
+🔗 Live Site: 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Client Repository
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 https://github.com/Zannat02/freelance-marketplace-client
+
+---
+
+## Server Repository
+
+🔗 https://github.com/Zannat02/freelance-marketplace-server
+
+---
+
+#  Features
+
+-  Firebase Authentication (Email/Password & Google Sign-In)
+-  Protected Routes for Add Task, Task Details, My Posted Tasks, and Update Task
+-  Complete CRUD Operations (Create, Read, Update, Delete)
+-  Freelancers can bid on tasks with automatic bid count updates
+-  Featured Tasks display the nearest upcoming deadlines with MongoDB sorting and limit
+-  Dark / Light Theme Toggle on the Home Page
+-  Fully Responsive Design for Mobile, Tablet, and Desktop
+-  Custom Hero Slider with Auto Play, Manual Navigation, Typewriter Animation, and Dark Mode Support
+-  Interactive UI using React Awesome Reveal and Motion Animations
+-  SweetAlert2 notifications for successful operations
+-  Loading Spinner during data fetching
+-  Custom 404 Not Found Page
+-  Environment Variables used for Firebase and MongoDB credentials
+
+---
+
+#  Technologies Used
+
+### Frontend
+
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- Firebase Authentication
+- React Helmet
+- React Awesome Reveal
+- Motion
+- React Simple Typewriter
+- SweetAlert2
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- dotenv
+- CORS
+
+---
+
+#  Pages
+
+- Home
+- Login
+- Signup
+- Add Task (Private)
+- Browse Tasks
+- Task Details (Private)
+- My Posted Tasks (Private)
+- Update Task (Private)
+- 404 Not Found
+
+---
+
+#  Authentication
+
+- Email & Password Login
+- Google Login
+- Protected Routes
+- Password Validation
+- User Profile Display
+- Logout Functionality
+
+---
+
+#  CRUD Functionalities
+
+### Create
+
+- Add a new task
+
+### Read
+
+- Browse all tasks
+- Featured Tasks
+- Task Details
+- My Posted Tasks
+
+### Update
+
+- Edit existing task information
+
+### Delete
+
+- Delete task with confirmation
+
+---
+
+#  UI Features
+
+- Custom Responsive Hero Slider
+- Dark / Light Theme
+- Responsive Navigation
+- Featured Task Animation
+- How It Works Section
+- Why Choose Us Section
+- Footer with Contact Information
+- Responsive Cards
+- Modern UI Design
+
+---
+
+#  Project Structure
+
+```
+src
+│
+├── Components
+│   ├── Header
+│   ├── Footer
+│   ├── Bannar
+│   ├── FeaturedTask
+│   ├── CategoryDropdown
+│   ├── HowItWorks
+│   └── WhyChooseUs
+│
+├── Layouts
+│   └── MainLayout
+│
+├── Pages
+│   ├── Home
+│   ├── Login
+│   ├── Signup
+│   ├── AddTask
+│   ├── BrowseTask
+│   ├── TaskDetails
+│   ├── MyTask
+│   ├── UpdateTask
+│   └── NotFound
+│
+├── Context
+│   ├── AuthContext
+│   └── AuthProvider
+│
+├── Firebase
+│   └── firebase_config
+│
+└── main.jsx
+```
+
+---
+
+#  Installation
+
+Clone the repositories
+
+```bash
+git clone <client-repository-url>
+git clone <server-repository-url>
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run client
+
+```bash
+npm run dev
+```
+
+Run server
+
+```bash
+nodemon index.js
+```
+
+---
+
+#  Environment Variables
+
+Create a `.env` file.
+
+```
+VITE_API_KEY=
+VITE_AUTH_DOMAIN=
+VITE_PROJECT_ID=
+VITE_STORAGE_BUCKET=
+VITE_MESSAGING_SENDER_ID=
+VITE_APP_ID=
+
+DB_USER=
+DB_PASS=
+```
+
+---
+
+#  Developed By
+
+**Zannatul Ferdous Shawon**
+
+B.Sc. in Computer Science & Engineering
+
+University of Asia Pacific
 
 
 
-
-  <section class="relative bg-gradient-to-bl from-[#041021] to-[#104187] px-4 py-20 overflow-hidden">
-    <div class="max-w-7xl mx-auto pb-16 relative z-10">
-
-      <!-- Heading -->
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        Customer testimonials
-      </h2>
-
-      <!-- Paragraph -->
-      <p class="text-white mb-7">
-        Hear from our satisfied clients who have trusted Digital Lord to build modern, responsive, and effective digital solutions for their businesses.
-      </p>
-
-      <!-- Grid container -->
-      <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center px-4">
-
-  <!-- CARD 1 -->
-  <div
-    class="bg-white rounded-lg shadow-md p-6 w-full max-w-sm h-[390px] flex flex-col justify-between text-left relative">
-    <!-- Star Rating -->
-    <div class="flex space-x-1 mb-4">
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2l2.94 5.03
-             6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2l2.94 5.03
-             6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2l2.94 5.03
-             6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2l2.94 5.03
-             6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2l2.94 5.03
-             6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-    </div>
-
-    <!-- Quote -->
-    <p class="text-gray-700 italic mb-4">
-       "Digital Lord transformed our online presence completely. Their team delivered a fast, modern website that perfectly represents our brand and improved our customer engagement."
-    </p>
-    <!-- Avatar -->
-    <img src="picture/Avatar Image.png" alt="Avatar" class="w-16 h-16 rounded-full object-cover mb-2">
-    <!-- Name + Date -->
-    <p class=" font-semibold">Name Surname</p>
-    <p class="text-sm text-gray-500">Position, Company name</p>
-    <!-- Brand -->
-    <img src="picture/Logo.png" alt="Brand Logo" class="w-16 h-auto mt-4">
-  </div>
-
-  <!-- CARD 2 -->
-  <div
-    class="bg-white rounded-lg shadow-md p-6 w-full max-w-sm h-[390px] flex flex-col justify-between text-left relative">
-    <div class="flex space-x-1 mb-4">
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-    </div>
-    <p class="text-gray-700 italic mb-4">
-      "Working with Digital Lord was a great experience. Their developers were professional, responsive, and delivered the project on time with excellent quality."
-    </p>
-    <img src="picture/Avatar Image.png" alt="Avatar" class="w-16 h-16 rounded-full object-cover mb-2">
-    <p class=" font-semibold">Name Surname</p>
-    <p class="text-sm text-gray-500">Position, Company name</p>
-    <img src="picture/Logo.png" alt="Brand Logo" class="w-16 h-auto mt-4">
-  </div>
-
-  <!-- CARD 3 -->
-  <div
-    class="bg-white rounded-lg shadow-md p-6 w-full max-w-sm h-[390px] flex flex-col justify-between text-left relative">
-    <div class="flex space-x-1 mb-4">
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-      <svg class="w-5 h-5 text-color" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09L5.82 12.18 1 7.91l6.06-.88L10 2
-             l2.94 5.03 6.06.88-4.82 4.27 1.698 5.91z" />
-      </svg>
-    </div>
-    <p class="text-gray-700 italic mb-4">
-      "The Digital Lord team helped us scale our business with a secure and high-performance website. Their attention to detail and support throughout the project was outstanding."
-    </p>
-    <img src="picture/Avatar Image.png" alt="Avatar" class="w-16 h-16 rounded-full object-cover mb-2">
-    <p class="font-semibold">Name Surname</p>
-    <p class="text-sm text-gray-500">Position, Company name</p>
-    <img src="picture/Logo.png" alt="Brand Logo" class="w-16 h-auto mt-4">
-  </div>
-
-  <!-- Indicator Dots -->
-  <div class="absolute -bottom-8 left-6 flex space-x-1 z-20">
-    <span class="w-2 h-2 rounded-full bg-white"></span>
-    <span class="w-2 h-2 rounded-full bg-[#d8d8d8]"></span>
-    <span class="w-2 h-2 rounded-full bg-[#d8d8d8]"></span>
-    <span class="w-2 h-2 rounded-full bg-[#d8d8d8]"></span>
-    <span class="w-2 h-2 rounded-full bg-[#d8d8d8]"></span>
-    <span class="w-2 h-2 rounded-full bg-[#d8d8d8]"></span>
-  </div>
-
-  <!-- Navigation Buttons -->
-  <div class="absolute -bottom-20 right-6 flex space-x-3 z-20">
-    <button
-      class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 transition">
-      <i class="fa-solid fa-arrow-left w-4 h-4 text-gray-800"></i>
-    </button>
-    <button
-      class="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 transition">
-      <i class="fa-solid fa-arrow-right w-4 h-4 text-gray-800 "></i>
-    </button>
-  </div>
-</div>
-
-    </div>
-
-    <!-- Decorative Images -->
-    <img src="picture/corner-pic.png" alt="Top Decoration" class="absolute top-0 right-0 w-32 md:w-48 opacity-80 z-0">
-    <img src="picture/corner-pic2.png" alt="Bottom Decoration"
-      class="absolute bottom-0 left-0 w-32 md:w-48 opacity-80 z-0">
-  </section>
+ 
