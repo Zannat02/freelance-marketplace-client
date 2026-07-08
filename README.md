@@ -6,7 +6,7 @@ A modern and responsive Freelance Task Marketplace web application where clients
 
 ##  Live Website
 
-🔗 Live Site: 
+🔗 Live Site: https://freelance-marketplace-client.vercel.app/
 
 ---
 
